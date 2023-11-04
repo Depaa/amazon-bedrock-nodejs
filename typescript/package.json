@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@aws-sdk/client-bedrock": "^3.441.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.441.0",
+    "@types/aws-lambda": "^8.10.125"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "typescript": "^5.2.2"
+  }
+}
