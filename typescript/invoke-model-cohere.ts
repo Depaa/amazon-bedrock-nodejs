@@ -1,5 +1,5 @@
 import { APIGatewayProxyHandler, APIGatewayProxyResult } from "aws-lambda";
-import { invokeModel } from './utils/client-bedrock-runtime';
+import { invokeModel, InvokeModelCommandInput } from './utils/client-bedrock-runtime';
 
 const MODEL_ID = process.env.MODEL_ID || 'cohere.command-text-v14';
 /*
@@ -11,7 +11,7 @@ const MODEL_ID = process.env.MODEL_ID || 'cohere.command-text-v14';
 const PROMPT = process.env.PROMPT || 'Hi, who are you?';
 
 export const handler: APIGatewayProxyHandler = async (_event): Promise<APIGatewayProxyResult> => {
-  const params = {
+  const params: InvokeModelCommandInput = {
     modelId: MODEL_ID,
     contentType: "application/json",
     accept: "application/json",
@@ -34,7 +34,7 @@ export const handler: APIGatewayProxyHandler = async (_event): Promise<APIGatewa
     const bodyRes = {
       prompt: PROMPT,
       completion: modelRes.generations[0].text,
-    }
+    };
     console.debug(bodyRes);
 
     return {

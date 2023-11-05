@@ -9,9 +9,9 @@ const logger = console; // import your own logger
 * @returns {Promise<InvokeModelCommandOutput>}
 * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/BedrockRuntime.html#invokeModel-property
 */
-export const invokeModel = async (param: InvokeModelCommandInput): Promise<InvokeModelCommandOutput> => {
-  logger.debug(param);
-  const command = new InvokeModelCommand(param);
+export const invokeModel = async (params: InvokeModelCommandInput): Promise<InvokeModelCommandOutput> => {
+  logger.debug(params);
+  const command = new InvokeModelCommand(params);
   const res = await client.send(command);
   logger.debug('Successfully invoke model');
   logger.debug(res);
@@ -24,9 +24,9 @@ export const invokeModel = async (param: InvokeModelCommandInput): Promise<Invok
 * @returns {Promise<InvokeModelWithResponseStreamCommandOutput>}
 * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/BedrockRuntime.html#invokeModelWithResponseStream-property
 */
-export const invokeModelWithResponseStream = async (param: InvokeModelWithResponseStreamCommandInput): Promise<InvokeModelWithResponseStreamCommandOutput> => {
-  logger.debug(param);
-  const command = new InvokeModelWithResponseStreamCommand(param);
+export const invokeModelWithResponseStream = async (params: InvokeModelWithResponseStreamCommandInput): Promise<InvokeModelWithResponseStreamCommandOutput> => {
+  logger.debug(params);
+  const command = new InvokeModelWithResponseStreamCommand(params);
   const res = await client.send(command);
   logger.debug('Successfully invoke model with response stream');
   logger.debug(res);

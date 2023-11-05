@@ -1,5 +1,5 @@
 import { APIGatewayProxyHandler, APIGatewayProxyResult } from "aws-lambda";
-import { invokeModel } from './utils/client-bedrock-runtime';
+import { InvokeModelCommandInput, invokeModel } from './utils/client-bedrock-runtime';
 import fs from 'fs';
 import path from 'path';
 
@@ -25,7 +25,7 @@ const saveImageLocally = (base64Image: string) => {
 }
 
 export const handler: APIGatewayProxyHandler = async (_event): Promise<APIGatewayProxyResult> => {
-  const params = {
+  const params: InvokeModelCommandInput = {
     modelId: MODEL_ID,
     contentType: "application/json",
     accept: "application/json",
@@ -47,7 +47,7 @@ export const handler: APIGatewayProxyHandler = async (_event): Promise<APIGatewa
     const bodyRes = {
       prompt: PROMPT,
       image: base64Image,
-    }
+    };
     console.debug(bodyRes);
     saveImageLocally(base64Image);
 

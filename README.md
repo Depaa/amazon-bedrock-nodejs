@@ -1,3 +1,1 @@
-# amazon-bedrock-nodejs
-Amazon Bedrock Node.js examples
-
+🔗Blogpost: [Amazon Bedrock For JavaScript and TypeScript Developers](https://cloudnature.net/blog/amazon-bedrock-for-javascript-and-typescript-developers)
