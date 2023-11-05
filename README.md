@@ -1,1 +1,1 @@
-🔗Blogpost: [Amazon Bedrock For JavaScript and TypeScript Developers](https://cloudnature.net/blog/amazon-bedrock-for-javascript-and-typescript-developers)
+🔗Blogpost: [Amazon Bedrock For JavaScript and TypeScript Developers](https://cloudnature.net/blog/amazon-bedrock-for-javascript-and-typescript-developers?utm_source=GitHub)
