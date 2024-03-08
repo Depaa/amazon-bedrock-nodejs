@@ -1,6 +1,6 @@
 const { invokeModel } = require('./utils/client-bedrock-runtime');
 
-const MODEL_ID = process.env.MODEL_ID || 'anthropic.claude-instant-v1';
+const MODEL_ID = process.env.MODEL_ID || 'anthropic.claude-3-sonnet-20240229-v1:0';
 /*
 * Anthropic models id:
 * "anthropic.claude-v1"
@@ -17,11 +17,30 @@ exports.handler = async (event) => {
     contentType: "application/json",
     accept: "application/json",
     body: JSON.stringify({
-      prompt: `\n\nHuman:${PROMPT}\n\nAssistant:`,
-      max_tokens_to_sample: 300,
+      anthropic_version: "bedrock-2023-05-31",
+      max_tokens: 4096,
       temperature: 0.5,
       top_k: 250,
       top_p: 1,
+      messages: [
+        {
+          role: "user",
+          content: [
+            // {
+            //   type: "image",
+            //   source: {
+            //     type: "base64",
+            //     media_type: "image/png",
+            //     data: 'YOUR_BASE_64_IMAGE',
+            //   },
+            // },
+            {
+              type: "text",
+              text: PROMPT
+            },
+          ],
+        }
+      ],
     }),
   };
 
@@ -32,7 +51,7 @@ exports.handler = async (event) => {
 
     const bodyRes = {
       prompt: PROMPT,
-      completion: modelRes.completion,
+      completion: modelRes.content[0].text,
     }
     console.debug(bodyRes);
 
